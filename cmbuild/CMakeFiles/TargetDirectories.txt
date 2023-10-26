@@ -1,0 +1,16 @@
+/src/cmbuild/CMakeFiles/index.dir
+/src/cmbuild/CMakeFiles/edit_cache.dir
+/src/cmbuild/CMakeFiles/rebuild_cache.dir
+/src/cmbuild/CMakeFiles/list_install_components.dir
+/src/cmbuild/CMakeFiles/install.dir
+/src/cmbuild/CMakeFiles/install/local.dir
+/src/cmbuild/CMakeFiles/install/strip.dir
+/src/cmbuild/lvgl/CMakeFiles/lvgl.dir
+/src/cmbuild/lvgl/CMakeFiles/lvgl_examples.dir
+/src/cmbuild/lvgl/CMakeFiles/lvgl_demos.dir
+/src/cmbuild/lvgl/CMakeFiles/edit_cache.dir
+/src/cmbuild/lvgl/CMakeFiles/rebuild_cache.dir
+/src/cmbuild/lvgl/CMakeFiles/list_install_components.dir
+/src/cmbuild/lvgl/CMakeFiles/install.dir
+/src/cmbuild/lvgl/CMakeFiles/install/local.dir
+/src/cmbuild/lvgl/CMakeFiles/install/strip.dir

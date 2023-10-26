@@ -32,8 +32,26 @@
 				padding: 0;
 			}
 		</style>
+		<script>
+			let reader= new FileReader();
+			function load_file()
+			{
+				let files = document.getElementById('xml_file').files;
+				let file=files[0];
+				reader.addEventListener('loadend', on_file_loaded);
+				reader.readAsArrayBuffer(file);
+			}
+
+			function on_file_loaded(e)
+			{
+				const data = new Uint8Array(reader.result);
+				Module.FS.writeFile('/ui.xml', data);
+				Module.ccall('load_xml_file', null, ['string'], ['/ui.xml']);
+			}
+		</script>
 	</head>
 	<body>
+		<input type="file" id="xml_file" onchange="load_file()" onclick="this.value=null;" /> 
 		<div id="git-hash"></div>
 		<p id="output">
 			<canvas id="canvas"></canvas>

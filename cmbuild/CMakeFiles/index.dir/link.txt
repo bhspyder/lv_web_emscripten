@@ -1,0 +1,1 @@
+/emsdk/upstream/emscripten/emcc  -O2 -s USE_SDL=2 --shell-file /src/lvgl_shell.html -s SINGLE_FILE=1 -s FORCE_FILESYSTEM=1 -s EXPORTED_RUNTIME_METHODS=ccall,cwrap,FS @CMakeFiles/index.dir/objects1.rsp -o index.html @CMakeFiles/index.dir/linklibs.rsp

@@ -1,0 +1,1 @@
+-I/src -isystem /src/lvgl -isystem /src/lvgl/examples -isystem /src/lvgl/demos

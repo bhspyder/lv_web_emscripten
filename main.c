@@ -94,6 +94,15 @@ int main(int argc, char ** argv)
     emscripten_set_main_loop_arg(do_loop, NULL, -1, true);
 }
 
+EMSCRIPTEN_KEEPALIVE
+void load_xml_file(char *path)
+{
+    lv_obj_t *active = lv_scr_act();
+    lv_obj_t *xml_obj = lv_xml_inflate(path);
+    lv_screen_load(xml_obj);
+    lv_obj_delete(active);
+}
+
 void do_loop(void *arg)
 {
     /* Periodically call the lv_task handler.
