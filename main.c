@@ -64,43 +64,36 @@ int main(int argc, char ** argv)
     const struct lv_ci_example *ex = NULL;
     monitor_hor_res = atoi(argv[1]);
     monitor_ver_res = atoi(argv[2]);
-    /* Check if a specific example is wanted (not "default") */
-    if(argc >= 4 && strcmp(ex->name, "default")) {
-        for(ex = &lv_ci_example_list[0]; ex->name != NULL; ex++) {
-            if(!strcmp(ex->name, argv[3])) {
-                break;
-            }
-        }
-        if(ex->name == NULL) {
-            fprintf(stderr, "Unable to find requested example\n");
-        }
-    }
-    printf("Starting with screen resolution of %dx%d px\n", monitor_hor_res, monitor_ver_res);
 
-    /*Initialize LittlevGL*/
+    /*Initialize LVGL*/
     lv_init();
 
     /*Initialize the HAL (display, input devices, tick) for LittlevGL*/
     hal_init();
 
-    /*Load a demo*/
-    if(ex != NULL && ex->fn != NULL) {
-        ex->fn();
-    } else {
-        extern void CHOSEN_DEMO(void);
-        CHOSEN_DEMO();
-    }
-
     emscripten_set_main_loop_arg(do_loop, NULL, -1, true);
 }
 
 EMSCRIPTEN_KEEPALIVE
-void load_xml_file(char *path)
+void load_xml(char *xml)
 {
+    lv_obj_t *xml_obj = lv_xml_inflate(xml);
+    if (!xml_obj)
+    {
+        printf("Inflated xml yeilded no root object\n");
+        return;
+    }
+
     lv_obj_t *active = lv_scr_act();
-    lv_obj_t *xml_obj = lv_xml_inflate(path);
     lv_screen_load(xml_obj);
     lv_obj_delete(active);
+}
+
+EMSCRIPTEN_KEEPALIVE
+void redraw()
+{
+    lv_obj_t *active = lv_scr_act();
+    lv_obj_invalidate(active);
 }
 
 void do_loop(void *arg)
