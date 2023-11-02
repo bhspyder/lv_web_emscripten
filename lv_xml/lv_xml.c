@@ -3,8 +3,9 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#include "../lvgl.h"
+#include "lvgl.h"
 #include "lv_xml.h"
+#include "yxml.h"
 
 #include "elements/lv_xml_obj.h"
 #include "elements/lv_xml_button.h"

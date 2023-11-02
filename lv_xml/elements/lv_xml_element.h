@@ -1,7 +1,7 @@
 ﻿#ifndef LV_XML_ELEMENT_H_
 #define LV_XML_ELEMENT_H_
 
-#include "../../lvgl.h"
+#include "lvgl.h"
 
 typedef struct lv_xml_attribute_t
 {

@@ -13,6 +13,7 @@
 #include <SDL2/SDL.h>
 #include <emscripten.h>
 #include "lvgl/lvgl.h"
+#include "lv_xml/lv_xml.h"
 #include "lvgl/demos/lv_demos.h"
 
 #include "examplelist.h"

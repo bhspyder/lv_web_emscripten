@@ -7,6 +7,7 @@ include_directories(${PROJECT_SOURCE_DIR})
 
 add_subdirectory(lvgl)
 file(GLOB MY_SOURCES "./*.c")
+file(GLOB_RECURSE MY_SOURCES "./lv_xml/*.c")
 set(SOURCES ${MY_SOURCES})
 
 add_executable(index ${SOURCES} ${INCLUDES})
