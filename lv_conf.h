@@ -266,6 +266,15 @@
  * 0: round down, 64: round up from x.75, 128: round up from half, 192: round up from x.25, 254: round up */
 #define lv_color_mix_ROUND_OFS 0
 
+/* Add `id` field to `lv_obj_t` */
+#define LV_USE_OBJ_ID           1
+
+/* Use lvgl builtin method for obj ID */
+#define LV_USE_OBJ_ID_BUILTIN   0
+
+/*Use obj property set/get API*/
+#define LV_USE_OBJ_PROPERTY 0
+
 /*=====================
  *  COMPILER SETTINGS
  *====================*/

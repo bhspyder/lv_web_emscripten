@@ -3,6 +3,7 @@
 
 #include "lv_xml_obj.h"
 
+static void apply_name(lv_xml_attribute_t *attribute, lv_obj_t * obj, char* value);
 static void apply_width(lv_xml_attribute_t* attribute, lv_obj_t* obj, char* value);
 static void apply_height(lv_xml_attribute_t* attribute, lv_obj_t* obj, char* value);
 static void apply_content_width(lv_xml_attribute_t* attribute, lv_obj_t* obj, char* value);
@@ -25,6 +26,7 @@ static void apply_state(lv_xml_attribute_t *attribute, lv_obj_t* obj, char* valu
 static const lv_xml_attribute_t attributes[] =
 {
     //Size and position
+    {.name = "name", .apply_cb = apply_name },
     {.name = "width", .apply_cb = apply_width },
     {.name = "height", .apply_cb = apply_height },
     {.name = "content-width", .apply_cb = apply_content_width },
@@ -88,6 +90,13 @@ const lv_xml_element_t lv_xml_obj_element =
     .attributes = attributes,
     .attributes_count = sizeof(attributes) / sizeof(lv_xml_attribute_t)
 };
+
+static void apply_name(lv_xml_attribute_t* attribute, lv_obj_t* obj, char* value)
+{
+    size_t length = strlen(value);
+    obj->id = malloc(length * sizeof(char));
+    strcpy(obj->id, value);
+}
 
 static void apply_width(lv_xml_attribute_t* attribute, lv_obj_t* obj, char* value)
 {
