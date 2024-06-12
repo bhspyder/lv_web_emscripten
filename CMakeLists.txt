@@ -22,5 +22,7 @@ target_link_libraries(index
     lvgl
     lvgl_examples
     lvgl_demos
+    lvgl_thorvg
+    SDL2
 )
 set_target_properties(index PROPERTIES LINK_FLAGS "--shell-file ${PROJECT_SOURCE_DIR}/lvgl_shell.html -s EXPORTED_RUNTIME_METHODS=ccall,cwrap")
